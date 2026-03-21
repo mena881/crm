@@ -1,0 +1,1994 @@
+/* ========== MOBILE STYLES FOR MR.Flow SYSTEM ========== */
+/* ملف متكامل لواجهة الموبايل - متوافق مع جميع الصفحات */
+/* تاريخ التحديث: 2025 */
+
+/* ========== TABLE OF CONTENTS ========== 
+   1. GLOBAL MOBILE VARIABLES
+   2. BASE RESPONSIVE ADJUSTMENTS
+   3. HEADER & NAVIGATION MOBILE
+   4. TABS SYSTEM MOBILE
+   5. CARDS & GRIDS MOBILE
+   6. TABLES MOBILE (Scrollable & Compact)
+   7. MODALS MOBILE (Fullscreen & Slide-up)
+   8. FORMS & INPUTS MOBILE
+   9. BUTTONS & ACTIONS MOBILE
+  10. DASHBOARD & STATS MOBILE
+  11. SPECIFIC PAGE FIXES
+  12. UTILITY CLASSES
+  13. PRINT STYLES
+========================================== */
+
+/* ========== 1. GLOBAL MOBILE VARIABLES ========== */
+@media (max-width: 768px) {
+  :root {
+    /* تخصيص المتغيرات للموبايل */
+    --ds-header-height: 60px;
+    --ds-header-height-mobile: 60px;
+    --ds-sidebar-width: 85%;
+    --ds-spacing-lg: 16px;
+    --ds-spacing-md: 12px;
+    --ds-spacing-sm: 8px;
+    --ds-spacing-xs: 4px;
+    --ds-font-size-base: 14px;
+    --ds-font-size-sm: 12px;
+    --ds-font-size-xs: 10px;
+    --ds-font-size-lg: 16px;
+    --ds-font-size-xl: 18px;
+    --ds-radius-lg: 12px;
+    --ds-radius-md: 8px;
+    --ds-radius-sm: 4px;
+  }
+}
+
+/* ========== 2. BASE RESPONSIVE ADJUSTMENTS ========== */
+@media (max-width: 768px) {
+  body {
+    font-size: var(--ds-font-size-base);
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .container, main, .container-fluid {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* منع التمرير الأفقي */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+/* ========== 3. HEADER & NAVIGATION MOBILE ========== */
+@media (max-width: 768px) {
+  /* الهيدر العلوي */
+  .live-header.top-header {
+    height: var(--ds-header-height-mobile);
+    padding: 0 12px;
+  }
+
+  .header-content {
+    gap: 8px;
+  }
+
+  /* شعار الهيدر */
+  .header-logo {
+    max-width: 120px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  /* إخفاء القوائم الطويلة */
+  .header-nav {
+    display: none !important;
+  }
+
+  /* زر القائمة الجانبية (هامبرغر) */
+  .hamburger-menu {
+    display: flex !important;
+    width: 30px;
+    height: 24px;
+    margin: 0;
+  }
+
+  /* أيقونات الهيدر */
+  .notifications-btn, .user-btn, .subscription-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .notifications-badge {
+    top: -2px;
+    left: -2px;
+    width: 16px;
+    height: 16px;
+    font-size: 0.6rem;
+  }
+
+  /* زر الاشتراك - إخفاء النص */
+  .subscription-btn span {
+    display: none;
+  }
+
+  .subscription-btn i {
+    margin: 0;
+  }
+
+  /* لوحة الإشعارات */
+  .notifications-panel {
+    width: 300px;
+    max-height: 400px;
+    left: auto;
+    right: -10px;
+  }
+
+  /* لوحة الاشتراك */
+  .subscription-panel {
+    width: 280px;
+    left: auto;
+    right: 0;
+  }
+
+  /* قائمة المستخدم */
+  .user-dropdown {
+    width: 200px;
+    left: auto;
+    right: 0;
+  }
+
+  /* الهيدر الجانبي */
+  .live-header.sidebar-header {
+    width: 85%;
+    max-width: 320px;
+  }
+
+  .live-header.sidebar-header .header-content {
+    padding: 16px;
+  }
+
+  .live-header.sidebar-header .header-nav {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .live-header.sidebar-header .nav-item {
+    width: 100%;
+  }
+
+  .live-header.sidebar-header .nav-link {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .live-header.sidebar-header .nav-dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    margin-right: 20px;
+    max-height: none;
+  }
+
+  /* زر الثيم */
+  .theme-switch-container {
+    transform: scale(0.8);
+    margin: 0 -5px;
+  }
+
+  /* أيقونة المستخدم */
+  .user-btn i {
+    font-size: 1rem;
+  }
+}
+
+/* ========== 4. TABS SYSTEM MOBILE ========== */
+@media (max-width: 768px) {
+  /* تبويبات عامة */
+  .tabs-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .tabs-container::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .tabs-container::-webkit-scrollbar-thumb {
+    background: var(--ds-primary);
+    border-radius: 10px;
+  }
+
+  .tab-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .tab-btn i {
+    font-size: 1rem;
+    margin-left: 4px;
+  }
+
+  .tab-btn.active::after {
+    height: 2px;
+  }
+
+  /* تبويبات المخازن */
+  .warehouse-tabs-header {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .warehouse-tab-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  /* بادج التبويبات */
+  .tab-badge, .warehouse-tab-badge {
+    padding: 2px 6px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ========== 5. CARDS & GRIDS MOBILE ========== */
+@media (max-width: 768px) {
+  /* شبكة البطاقات العامة */
+  .status-grid, .tasks-grid, .suppliers-cards, .categories-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  /* بطاقة عامة */
+  .status-card, .task-card, .supplier-card, .category-card {
+    padding: 16px;
+  }
+
+  .status-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .status-name {
+    font-size: 1rem;
+  }
+
+  /* تفاصيل المنتج */
+  .product-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .product-details span {
+    width: 100%;
+  }
+
+  .status-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* بطاقات الأداء */
+  .cards-grid, .kpi-grid, .stats-cards, .comparison-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .performance-card, .kpi-card, .stat-card {
+    padding: 12px;
+  }
+
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .card-value, .kpi-value, .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .card-label, .kpi-label, .stat-label {
+    font-size: 0.8rem;
+  }
+
+  /* بطاقات الموردين */
+  .supplier-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .supplier-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .supplier-footer {
+    flex-direction: column;
+  }
+
+  .supplier-footer button {
+    width: 100%;
+  }
+
+  /* بطاقات التصنيفات */
+  .category-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .category-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  /* بطاقات المتابعة */
+  .followup-card {
+    padding: 12px;
+  }
+
+  .followup-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .followup-owner {
+    align-self: flex-start;
+  }
+
+  /* بطاقات الإحصائيات */
+  .stat-item {
+    padding: 8px;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ========== 6. TABLES MOBILE (Scrollable & Compact) ========== */
+@media (max-width: 768px) {
+  /* حاويات الجداول */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -12px 16px -12px;
+    padding: 0 12px;
+    width: calc(100% + 24px);
+  }
+
+  /* الجداول */
+  table, .data-table, .invoices-table, .shipping-table, 
+  .customers-table, .orders-table, .pending-table, 
+  .warehouse-table, .adjustments-table, .transfers-table,
+  .history-table, .transactions-table, .products-table {
+    min-width: 650px !important;
+  }
+
+  /* خلايا الجدول */
+  th, td {
+    padding: 10px 6px !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap;
+  }
+
+  th i {
+    font-size: 0.8rem;
+  }
+
+  /* صفوف الجدول */
+  tr {
+    border-bottom: 1px solid var(--ds-border-light);
+  }
+
+  /* أزرار الإجراءات */
+  .table-actions, .action-buttons-group {
+    gap: 2px;
+    flex-wrap: nowrap;
+  }
+
+  .table-icon-btn, .action-btn-small {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+    padding: 2px;
+  }
+
+  /* شارات الحالة */
+  .status-badge, .badge {
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    min-width: 50px;
+  }
+
+  /* أرقام التتبع */
+  .tracking-number {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+  }
+
+  /* خانات الاختيار */
+  .checkbox-wrapper input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* عرض المنتجات */
+  .products-summary {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* التحكم في الصفوف */
+  .select-all-row {
+    font-size: 0.8rem;
+  }
+
+  /* جدول المنتجات في المودال */
+  .cart-table {
+    font-size: 0.8rem;
+  }
+
+  .cart-table th, .cart-table td {
+    padding: 6px;
+  }
+
+  /* جدول سجل النشاطات */
+  .activity-timeline {
+    max-height: 300px;
+  }
+
+  .activity-item {
+    padding: 8px;
+  }
+
+  .activity-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .activity-meta {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  /* ترقيم الصفحات */
+  .pagination {
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .pagination button, .page-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 0.8rem;
+  }
+
+  .rows-per-page {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .rows-per-page select {
+    width: 70px;
+  }
+}
+
+/* ========== 7. MODALS MOBILE (Fullscreen & Slide-up) ========== */
+@media (max-width: 768px) {
+  .modal-overlay {
+    align-items: flex-end;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 20px 20px 0 0;
+    padding: 20px 16px;
+    margin: 0;
+    transform: translateY(20px);
+  }
+
+  .modal-overlay.show .modal-content {
+    transform: translateY(0);
+  }
+
+  /* مودال كبير */
+  .modal-content.large {
+    max-width: 100%;
+    max-height: 95vh;
+  }
+
+  /* رأس المودال */
+  .modal-header {
+    padding: 0 0 12px 0;
+    margin-bottom: 16px;
+  }
+
+  .modal-header h2, .modal-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .close-modal {
+    font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  /* جسم المودال */
+  .modal-body {
+    max-height: calc(90vh - 120px);
+    overflow-y: auto;
+    padding: 0;
+  }
+
+  /* شبكة المودال */
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .full-width {
+    grid-column: span 1 !important;
+  }
+
+  /* أزرار المودال */
+  .modal-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .modal-actions .btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* مودال تأكيد الحذف */
+  #deleteModal .modal-content {
+    max-width: 90%;
+    border-radius: 20px;
+  }
+
+  .delete-confirmation {
+    padding: 0;
+  }
+
+  .delete-confirmation i {
+    font-size: 2.5rem;
+  }
+
+  .delete-confirmation h3 {
+    font-size: 1.3rem;
+  }
+
+  /* مودال الإجراءات الجماعية */
+  .bulk-action-options {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bulk-action-card {
+    padding: 16px;
+  }
+
+  .bulk-action-card i {
+    font-size: 2rem;
+  }
+
+  .bulk-action-card h4 {
+    font-size: 1rem;
+  }
+
+  /* مودال الإجراءات (تأجيل، إرجاع، إلخ) */
+  .action-tab {
+    padding: 12px 0;
+  }
+
+  /* أزرار التبويبات في المودال */
+  #actionModalTabs, .action-modal-tabs {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  #actionModalTabs button, .action-modal-tabs button {
+    width: 100%;
+  }
+
+  /* تفاصيل الطلب في المودال */
+  .order-details-grid, .details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+
+  .detail-card {
+    padding: 12px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  /* قائمة المنتجات */
+  .products-list {
+    max-height: 200px;
+  }
+
+  .product-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  /* معلومات الدفع */
+  .payment-grid, .payment-details-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px;
+  }
+
+  .payment-item {
+    padding: 8px;
+  }
+
+  .payment-item .value {
+    font-size: 1rem;
+  }
+
+  /* سجل الفاتورة */
+  .history-timeline {
+    max-height: 300px;
+  }
+
+  .history-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .history-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .history-meta {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  /* خيارات الإرجاع */
+  .return-options-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .return-option-btn {
+    width: 100%;
+  }
+
+  /* عناصر المرتجع الجزئي */
+  .partial-return-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .partial-return-item .qty-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .partial-return-item input {
+    width: 60px;
+  }
+
+  /* ملخص الفاتورة */
+  .summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .summary-products {
+    max-height: 150px;
+  }
+
+  .copy-message-btn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  /* مودال اختيار الموظف */
+  .employee-select-container {
+    max-height: 200px;
+  }
+
+  .employee-option {
+    padding: 10px;
+  }
+
+  /* مودال رفع Excel */
+  .excel-upload-area {
+    padding: 20px;
+  }
+
+  .excel-upload-area i {
+    font-size: 2.5rem;
+  }
+
+  .excel-upload-area p {
+    font-size: 0.9rem;
+  }
+
+  /* معاينة Excel */
+  #excelPreview {
+    max-height: 200px;
+  }
+
+  #excelPreviewTable {
+    min-width: 100%;
+    font-size: 0.75rem;
+  }
+
+  #excelPreviewTable th, #excelPreviewTable td {
+    padding: 4px;
+  }
+}
+
+/* ========== 8. FORMS & INPUTS MOBILE ========== */
+@media (max-width: 768px) {
+  /* حقول الإدخال */
+  input, select, textarea, .form-control {
+    padding: 10px 12px !important;
+    font-size: 16px !important; /* منع التكبير التلقائي في iOS */
+    border-radius: var(--ds-radius-md);
+  }
+
+  /* مجموعات الحقول */
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+
+  .form-group label i {
+    font-size: 0.9rem;
+  }
+
+  /* حقول مزدوجة */
+  .row-2cols, .row-fields, .filter-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  /* مربعات البحث */
+  .search-box {
+    width: 100%;
+    min-width: auto;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .search-box i {
+    font-size: 0.9rem;
+  }
+
+  .search-box input {
+    font-size: 0.9rem;
+  }
+
+  /* أقسام الفلاتر */
+  .filter-section, .filters-section {
+    padding: 12px;
+  }
+
+  .filter-group {
+    min-width: 100%;
+  }
+
+  .filter-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filter-actions .btn {
+    width: 100%;
+  }
+
+  /* أقسام الإجراءات الجماعية */
+  .bulk-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .bulk-actions .actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .bulk-actions .btn-action {
+    width: 100%;
+  }
+
+  .bulk-input-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .bulk-textarea {
+    min-width: 100%;
+  }
+
+  .bulk-select {
+    width: 100%;
+  }
+
+  .selected-count {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* أزرار التحميل */
+  .btn-action {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+
+  .btn-action i {
+    font-size: 1rem;
+  }
+
+  /* أزرار صغيرة */
+  .btn-sm, .btn-action.small {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* زر التبديل (toggle) */
+  .toggle-switch {
+    transform: scale(0.9);
+  }
+
+  /* مربع اختيار متعدد */
+  .checkbox-wrapper {
+    justify-content: center;
+  }
+
+  /* رفع الصور */
+  .image-upload-container {
+    min-height: 120px;
+    padding: 12px;
+  }
+
+  .image-upload-container i {
+    font-size: 2rem;
+  }
+
+  .upload-text {
+    font-size: 0.9rem;
+  }
+
+  .upload-hint {
+    font-size: 0.7rem;
+  }
+
+  .image-preview {
+    max-height: 150px;
+  }
+
+  .remove-image-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* محدد المنتج */
+  .product-select-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .product-category-select, .product-item-select {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .product-select-container input[type="number"] {
+    width: 100%;
+  }
+
+  /* محدد نوع التوصيل */
+  .delivery-type-selector {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .delivery-option {
+    width: 100%;
+  }
+
+  /* خيارات الحالة */
+  .status-options {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .status-option {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  /* تحكم الأعمدة */
+  .column-control-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .column-dropdown {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* ========== 9. BUTTONS & ACTIONS MOBILE ========== */
+@media (max-width: 768px) {
+  /* أزرار الصفحة الرئيسية */
+  .actions {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .actions .btn, .actions .btn-action {
+    flex: 1 1 auto;
+    min-width: 40%;
+  }
+
+  /* أزرار الإجراءات السريعة */
+  .quick-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .quick-actions .btn {
+    width: 100%;
+  }
+
+  /* أزرار في رأس الصفحة */
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .page-header h1 i {
+    font-size: 1.3rem;
+  }
+
+  .page-header .actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* أزرار التبويب */
+  .view-toggle {
+    width: 100%;
+  }
+
+  .view-toggle button {
+    flex: 1;
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  /* أزرار التنقل */
+  .back-button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .back-button .btn {
+    width: 100%;
+  }
+}
+
+/* ========== 10. DASHBOARD & STATS MOBILE ========== */
+@media (max-width: 768px) {
+  /* قسم الترحيب */
+  .welcome-section {
+    padding: 16px;
+  }
+
+  .welcome-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .welcome-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .welcome-text p {
+    font-size: 0.9rem;
+  }
+
+  .datetime-display {
+    padding: 8px 16px;
+  }
+
+  .datetime-display .date {
+    font-size: 1rem;
+  }
+
+  .datetime-display .time {
+    font-size: 1.5rem;
+  }
+
+  /* قسم الهدف */
+  .target-section {
+    padding: 16px;
+  }
+
+  .target-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .target-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .target-badges {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .target-badge {
+    flex: 1;
+    justify-content: center;
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  .target-badge strong {
+    font-size: 0.9rem;
+  }
+
+  .target-circle-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .circular-progress {
+    width: 180px;
+    height: 180px;
+  }
+
+  .circular-progress::before {
+    width: 140px;
+    height: 140px;
+  }
+
+  .progress-value .percent {
+    font-size: 2rem;
+  }
+
+  .progress-value .label {
+    font-size: 0.8rem;
+  }
+
+  .target-stats {
+    width: 100%;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px;
+  }
+
+  .stat-item .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .stat-item .stat-sub {
+    font-size: 0.7rem;
+  }
+
+  /* توزيع حالات الأوردرات */
+  .status-distribution {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+
+  .status-distribution h3 {
+    font-size: 1rem;
+  }
+
+  .status-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+
+  .status-item {
+    padding: 10px;
+  }
+
+  .status-name {
+    font-size: 0.8rem;
+  }
+
+  .status-name i {
+    font-size: 0.7rem;
+  }
+
+  .status-count {
+    font-size: 1.2rem;
+  }
+
+  /* أشرطة التقدم */
+  .progress-bars-container {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .progress-bar-item {
+    padding: 12px;
+  }
+
+  .progress-bar-header {
+    font-size: 0.9rem;
+  }
+
+  .progress-bar-label {
+    font-size: 0.8rem;
+  }
+
+  .progress-bar-percent {
+    font-size: 0.9rem;
+  }
+
+  /* إحصائيات المهام */
+  .task-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+
+  .task-stat-card {
+    padding: 10px;
+  }
+
+  .task-stat-value {
+    font-size: 1.2rem;
+  }
+
+  .task-stat-label {
+    font-size: 0.7rem;
+  }
+
+  /* فلاتر المهام */
+  .task-filters {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .task-search {
+    width: 100%;
+  }
+
+  .task-filter {
+    width: 100%;
+  }
+
+  /* المتابعات */
+  .followups-section {
+    padding: 16px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .section-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .section-actions {
+    width: 100%;
+  }
+
+  .section-actions .btn-action {
+    flex: 1;
+  }
+
+  .followups-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* النشاط الأخير */
+  .activity-section {
+    padding: 16px;
+  }
+
+  .activity-timeline {
+    gap: 8px;
+  }
+
+  .activity-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .activity-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .activity-meta {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  /* قسم الهدف في حساب السيلز */
+  .target-section.employee-target {
+    flex-direction: column;
+  }
+
+  .target-info {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .target-item .value {
+    font-size: 1.2rem;
+  }
+
+  .target-progress {
+    width: 100%;
+  }
+
+  /* معلومات آخر تقفيل */
+  .last-close-info {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ========== 11. SPECIFIC PAGE FIXES ========== */
+@media (max-width: 768px) {
+  /* ===== صفحة الملف الشخصي (profileadmin) ===== */
+  #profilePanel .status-card {
+    padding: 16px;
+  }
+
+  #profilePanel .status-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #profilePanel .status-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  #profilePanel p {
+    font-size: 0.9rem;
+    margin: 8px 0;
+  }
+
+  /* ===== صفحة الأرباح (profit) ===== */
+  .charts-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .chart-card {
+    padding: 16px;
+  }
+
+  .chart-container {
+    height: 200px;
+  }
+
+  .profit-breakdown {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+
+  .breakdown-item {
+    padding: 12px;
+  }
+
+  .breakdown-item .value {
+    font-size: 1.1rem;
+  }
+
+  .date-range-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .date-group {
+    width: 100%;
+  }
+
+  /* ===== صفحة فواتير الشراء (purchase-invoices) ===== */
+  .supplier-details-card {
+    padding: 12px;
+  }
+
+  .supplier-info-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+
+  .supplier-details-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .selected-supplier {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .change-supplier-btn {
+    align-self: flex-end;
+  }
+
+  .warehouse-selector {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .warehouse-selector select {
+    width: 100%;
+  }
+
+  .cart-table {
+    font-size: 0.75rem;
+  }
+
+  .cart-table th, .cart-table td {
+    padding: 4px;
+  }
+
+  .totals-section {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .totals-section > div {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ===== صفحة مرتجعات الشراء (PURCHASERETURNS) ===== */
+  .return-badge {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+  }
+
+  /* ===== صفحة الإعدادات (settings) ===== */
+  .settings-layout {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    margin-top: 60px;
+  }
+
+  .settings-sidebar {
+    width: 100%;
+    max-height: none;
+    position: static;
+    padding: 16px;
+  }
+
+  .settings-content {
+    height: 500px;
+    max-height: 70vh;
+  }
+
+  .settings-item {
+    padding: 12px;
+  }
+
+  /* ===== صفحة الشحن (shipping) ===== */
+  #priceFilterCompany {
+    width: 100%;
+  }
+
+  /* ===== صفحة إدارة الشحنات (shippingmanagement) ===== */
+  .bulk-actions .bulk-input-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bulk-textarea {
+    width: 100%;
+  }
+
+  .bulk-select {
+    width: 100%;
+  }
+
+  /* ===== صفحة تسجيل الدخول (signin) ===== */
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+  }
+
+  .welcome-section {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .welcome-title {
+    font-size: 2.2rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+
+  .feature-item {
+    justify-content: center;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .subscription-icon-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .subscription-icon i {
+    font-size: 30px;
+  }
+
+  .progress-ring {
+    width: 90px;
+    height: 90px;
+  }
+
+  .subscription-details-panel {
+    min-width: 260px;
+  }
+
+  /* ===== صفحة المخزون (stock) ===== */
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .stock-progress {
+    width: 60px;
+  }
+
+  .product-details-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .transactions-tabs {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .transactions-tabs .tab-btn {
+    width: 100%;
+  }
+
+  /* ===== صفحة تسوية المخزن (stock-adjustment) ===== */
+  .adjustment-type-selector {
+    width: 100%;
+  }
+
+  .adjustment-type-selector select {
+    width: 100%;
+  }
+
+  .net-change-summary {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* ===== صفحة المخازن والمنتجات (store) ===== */
+  .price-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .products-checkbox-list {
+    max-height: 150px;
+  }
+
+  /* ===== صفحة الموردين (suppliers) ===== */
+  .employee-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* ===== صفحة كشوف حسابات الموردين (supplierspayments) ===== */
+  .suppliers-cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  .supplier-footer {
+    flex-direction: column;
+  }
+
+  .supplier-footer .btn-action {
+    width: 100%;
+  }
+
+  .payment-info .payment-details {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ===== صفحة المهام (tasks) ===== */
+  .task-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .task-detail-item {
+    width: 100%;
+  }
+
+  /* ===== صفحة تحويلات المخازن (transfer) ===== */
+  .warehouse-select-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .warehouse-select {
+    width: 100%;
+  }
+
+  .transfer-summary {
+    padding: 12px;
+  }
+
+  .summary-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  /* ===== صفحة تحديثات (updates) ===== */
+  .duration-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .duration-toggle {
+    justify-content: space-between;
+    margin-right: 0;
+  }
+
+  .duration-input-group {
+    width: 100%;
+  }
+
+  .duration-input-group input {
+    width: 100px;
+  }
+
+  /* ===== صفحة العملاء (masterdata) ===== */
+  .filters-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .customers-table .update-cell {
+    min-width: 120px;
+  }
+
+  .update-status {
+    font-size: 0.7rem;
+    padding: 2px 4px;
+  }
+
+  .customer-phones {
+    font-size: 0.65rem;
+  }
+
+  /* ===== صفحة طلباتي (orders) ===== */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-group input[type="date"] {
+    width: 100%;
+  }
+
+  .filter-group select {
+    width: 100%;
+  }
+
+  .table-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rows-per-page, .sort-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sort-controls select {
+    flex: 1;
+  }
+
+  /* ===== صفحة قائمة الإعدادات (pagesofsettings) ===== */
+  .settings-menu {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  /* ===== صفحة طرق الدفع (paymentmethods) ===== */
+  .payment-methods-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ===== صفحة الطلبات المعلقة (pending) ===== */
+  .filter-section .delivery-type {
+    width: 100%;
+  }
+
+  .delay-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* ===== صفحة الصلاحيات (Permission) ===== */
+  .permissions-grid {
+    grid-template-columns: 1fr !important;
+    max-height: 300px;
+  }
+
+  .permission-category {
+    padding: 12px;
+  }
+
+  .permission-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .permission-item .toggle-switch {
+    align-self: flex-end;
+  }
+
+  .permission-search-box {
+    width: 100%;
+  }
+
+  /* ===== صفحة المخزن (prepare) ===== */
+  .warehouse-tabs-container {
+    overflow-x: auto;
+  }
+
+  .warehouse-tabs-header {
+    padding: 4px;
+  }
+
+  .stock-level {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .stock-bar {
+    width: 100%;
+  }
+
+  /* ===== صفحة التسعير (pricing) ===== */
+  .pricing-container {
+    gap: 16px;
+  }
+
+  .pricing-card {
+    padding: 24px 20px;
+  }
+
+  .plan-name {
+    font-size: 1.5rem;
+  }
+
+  .plan-price {
+    font-size: 2.5rem;
+  }
+
+  .plan-features li {
+    font-size: 0.9rem;
+    padding: 8px 0 8px 25px;
+  }
+
+  .contact-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* ========== 12. UTILITY CLASSES ========== */
+@media (max-width: 768px) {
+  /* إخفاء العناصر في الموبايل */
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  /* إظهار العناصر المخصصة للموبايل */
+  .show-on-mobile {
+    display: block !important;
+  }
+
+  /* عرض كامل */
+  .w-100-mobile {
+    width: 100% !important;
+  }
+
+  /* محاذاة النص */
+  .text-center-mobile {
+    text-align: center !important;
+  }
+
+  .text-right-mobile {
+    text-align: right !important;
+  }
+
+  .text-left-mobile {
+    text-align: left !important;
+  }
+
+  /* الهوامش والحواف */
+  .m-0-mobile {
+    margin: 0 !important;
+  }
+
+  .p-0-mobile {
+    padding: 0 !important;
+  }
+
+  .mt-2-mobile {
+    margin-top: 8px !important;
+  }
+
+  .mb-2-mobile {
+    margin-bottom: 8px !important;
+  }
+
+  .mt-3-mobile {
+    margin-top: 16px !important;
+  }
+
+  .mb-3-mobile {
+    margin-bottom: 16px !important;
+  }
+
+  /* المرونة */
+  .flex-column-mobile {
+    flex-direction: column !important;
+  }
+
+  .flex-wrap-mobile {
+    flex-wrap: wrap !important;
+  }
+
+  .justify-center-mobile {
+    justify-content: center !important;
+  }
+
+  .align-start-mobile {
+    align-items: flex-start !important;
+  }
+
+  .gap-1-mobile {
+    gap: 4px !important;
+  }
+
+  .gap-2-mobile {
+    gap: 8px !important;
+  }
+
+  /* الحدود */
+  .border-0-mobile {
+    border: none !important;
+  }
+
+  .shadow-none-mobile {
+    box-shadow: none !important;
+  }
+
+  /* الخطوط */
+  .font-sm-mobile {
+    font-size: 0.8rem !important;
+  }
+
+  .font-xs-mobile {
+    font-size: 0.7rem !important;
+  }
+
+  .font-lg-mobile {
+    font-size: 1rem !important;
+  }
+}
+
+/* ========== 13. PRINT STYLES ========== */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  .container, main {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 4px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .btn, .btn-action, .table-actions, .modal-overlay {
+    display: none;
+  }
+}
+
+/* ========== TOUCH OPTIMIZATIONS ========== */
+@media (max-width: 768px) {
+  /* تحسين المسافات للأصابع */
+  .btn, .btn-action, .tab-btn, .nav-link, .dropdown-item, 
+  .icon-btn, .table-icon-btn, .action-btn-small {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* منع التحديد */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  /* تحسين التمرير */
+  .table-responsive, .modal-body, .permissions-grid, 
+  .history-timeline, .products-list {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* تحسين الظهور */
+  .card, .status-card, .task-card, .supplier-card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* ========== RTL SPECIFIC FIXES ========== */
+@media (max-width: 768px) {
+  /* إصلاحات للغة العربية */
+  .dropdown-item i:first-child {
+    margin-left: 8px;
+  }
+
+  .notification-item {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .activity-item {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .history-item {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .supplier-header {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .modal-header .close-modal {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .pagination button i {
+    transform: scale(1);
+  }
+}
+
+/* ========== END OF MOBILE STYLES ========== */

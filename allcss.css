@@ -1,0 +1,23 @@
+/* ===== CSS Loader Test ===== */
+
+/* استدعاء ملفات CSS */
+@import url("./searchicon.css");
+@import url("./chat-styles.css");
+@import url("./phone.css");
+
+/* ستايل اختبار */
+body{
+background:#f5f7fb;
+}
+
+.test-loader{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#111;
+color:#fff;
+padding:8px 12px;
+font-size:12px;
+border-radius:6px;
+z-index:9999;
+}

@@ -1,0 +1,433 @@
+/* ===== تقويم مخصص - تصميم عصري وجذاب ===== */
+:root {
+  --calendar-primary: #4361ee;
+  --calendar-primary-light: rgba(67, 97, 238, 0.1);
+  --calendar-primary-dark: #3a0ca3;
+  --calendar-success: #10b981;
+  --calendar-warning: #f59e0b;
+  --calendar-danger: #ef4444;
+  --calendar-bg: #ffffff;
+  --calendar-bg-secondary: #f8f9fa;
+  --calendar-text: #1e293b;
+  --calendar-text-secondary: #64748b;
+  --calendar-border: #e2e8f0;
+  --calendar-border-light: #edf2f7;
+  --calendar-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  --calendar-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --calendar-radius: 16px;
+  --calendar-radius-sm: 8px;
+}
+
+/* الوضع الليلي */
+[data-theme="dark"] {
+  --calendar-bg: #1e293b;
+  --calendar-bg-secondary: #0f172a;
+  --calendar-text: #f1f5f9;
+  --calendar-text-secondary: #94a3b8;
+  --calendar-border: #334155;
+  --calendar-border-light: #1e293b;
+}
+
+/* الحاوية الرئيسية للتقويم */
+.calendar-container {
+  background: var(--calendar-bg);
+  border-radius: var(--calendar-radius);
+  box-shadow: var(--calendar-shadow);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 1px solid var(--calendar-border-light);
+  transition: all 0.3s ease;
+}
+
+/* رأس التقويم */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.calendar-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--calendar-text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.calendar-title i {
+  color: var(--calendar-primary);
+  font-size: 1.5rem;
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--calendar-bg-secondary);
+  padding: 0.25rem;
+  border-radius: 50px;
+  border: 1px solid var(--calendar-border-light);
+}
+
+.calendar-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--calendar-text);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-nav-btn:hover {
+  background: var(--calendar-primary-light);
+  color: var(--calendar-primary);
+  transform: translateY(-2px);
+}
+
+.calendar-month-year {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--calendar-text);
+  min-width: 180px;
+  text-align: center;
+}
+
+/* أيام الأسبوع */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid var(--calendar-border-light);
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-weight: 700;
+  color: var(--calendar-primary);
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+/* شبكة الأيام */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+/* يوم في التقويم */
+.calendar-day {
+  min-height: 80px;
+  background: var(--calendar-bg-secondary);
+  border: 1px solid var(--calendar-border-light);
+  border-radius: var(--calendar-radius-sm);
+  padding: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-day:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--calendar-shadow-sm);
+  border-color: var(--calendar-primary);
+}
+
+.calendar-day.today {
+  background: var(--calendar-primary-light);
+  border: 2px solid var(--calendar-primary);
+}
+
+.calendar-day.selected {
+  background: var(--calendar-primary);
+  color: white;
+}
+
+.calendar-day.other-month {
+  opacity: 0.5;
+  background: var(--calendar-bg);
+}
+
+.calendar-day.has-events::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--calendar-primary);
+}
+
+.calendar-day-number {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* الأحداث في اليوم */
+.calendar-events {
+  font-size: 0.7rem;
+  max-height: 40px;
+  overflow-y: auto;
+}
+
+.calendar-event {
+  background: var(--calendar-primary-light);
+  color: var(--calendar-primary);
+  padding: 0.125rem 0.25rem;
+  border-radius: 4px;
+  margin-bottom: 0.125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== منتقي التاريخ المنسدل ===== */
+.date-picker-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.date-picker-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--calendar-border);
+  border-radius: var(--calendar-radius-sm);
+  background: var(--calendar-bg);
+  color: var(--calendar-text);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.date-picker-input:hover {
+  border-color: var(--calendar-primary);
+}
+
+.date-picker-input:focus {
+  outline: none;
+  border-color: var(--calendar-primary);
+  box-shadow: 0 0 0 3px var(--calendar-primary-light);
+}
+
+.date-picker-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--calendar-bg);
+  border: 1px solid var(--calendar-border);
+  border-radius: var(--calendar-radius);
+  box-shadow: var(--calendar-shadow);
+  z-index: 1000;
+  margin-top: 0.5rem;
+  display: none;
+  min-width: 300px;
+}
+
+.date-picker-dropdown.show {
+  display: block;
+}
+
+.date-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--calendar-border);
+}
+
+.date-picker-nav {
+  background: transparent;
+  border: none;
+  color: var(--calendar-text);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-picker-nav:hover {
+  background: var(--calendar-primary-light);
+  color: var(--calendar-primary);
+}
+
+.date-picker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0.5rem;
+  gap: 0.25rem;
+}
+
+.date-picker-weekday {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--calendar-primary);
+}
+
+.date-picker-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  padding: 0.5rem;
+}
+
+.date-picker-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  border: none;
+  background: transparent;
+  color: var(--calendar-text);
+}
+
+.date-picker-day:hover {
+  background: var(--calendar-primary-light);
+  color: var(--calendar-primary);
+}
+
+.date-picker-day.selected {
+  background: var(--calendar-primary);
+  color: white;
+}
+
+.date-picker-day.today {
+  border: 2px solid var(--calendar-primary);
+}
+
+.date-picker-day.other-month {
+  opacity: 0.5;
+}
+
+/* ===== تقويم الفلاتر ===== */
+.calendar-filter {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.calendar-filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--calendar-border);
+  background: var(--calendar-bg);
+  color: var(--calendar-text);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.calendar-filter-btn:hover,
+.calendar-filter-btn.active {
+  background: var(--calendar-primary);
+  color: white;
+  border-color: var(--calendar-primary);
+}
+
+/* ===== شريط التمرير المخصص ===== */
+.calendar-events::-webkit-scrollbar {
+  width: 4px;
+}
+
+.calendar-events::-webkit-scrollbar-track {
+  background: var(--calendar-border-light);
+  border-radius: 4px;
+}
+
+.calendar-events::-webkit-scrollbar-thumb {
+  background: var(--calendar-primary);
+  border-radius: 4px;
+}
+
+/* ===== تنسيقات للشاشات الصغيرة ===== */
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 1rem;
+  }
+  
+  .calendar-day {
+    min-height: 60px;
+    font-size: 0.8rem;
+  }
+  
+  .calendar-weekday {
+    font-size: 0.7rem;
+  }
+  
+  .date-picker-dropdown {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+/* ===== تأثيرات حركية ===== */
+@keyframes calendarFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendar-container {
+  animation: calendarFadeIn 0.3s ease;
+}
+
+/* ===== تواريخ خاصة ===== */
+.calendar-day.past-date {
+  background: linear-gradient(135deg, var(--calendar-bg-secondary) 0%, var(--calendar-bg) 100%);
+  opacity: 0.7;
+}
+
+.calendar-day.future-date {
+  border-left: 3px solid var(--calendar-success);
+}
+
+.calendar-day.weekend {
+  background: linear-gradient(135deg, var(--calendar-primary-light) 0%, transparent 100%);
+}
+
+/* ===== علامات الأحداث ===== */
+.calendar-event-marker {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.calendar-event-marker.primary { background: var(--calendar-primary); }
+.calendar-event-marker.success { background: var(--calendar-success); }
+.calendar-event-marker.warning { background: var(--calendar-warning); }
+.calendar-event-marker.danger { background: var(--calendar-danger); }
